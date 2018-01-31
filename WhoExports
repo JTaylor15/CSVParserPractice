@@ -1,0 +1,48 @@
+import org.apache.commons.csv.*;
+/**
+ * Write a description of CVSProject here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class JDsCSVProject {
+
+
+public class WhichCountriesExport {
+public void listExporters(CSVParser parser, String exportOfInterest) {
+        //for each row in CSV File
+        for (CSVRecord record : parser) {
+            //look at the "Exports" column
+            String export = record.get("Exports");
+            //check if it contains exportOfInterest
+            if (export.contains(exportOfInterest)) {
+                //If so, write down the "Country" from that row
+                String country = record.get("Country");
+                System.out.println(country);
+            }
+        }
+    }
+    public void whoExportsCoffee() {
+        FileResource fr = new FileResource();
+        CSVParser parser= fr.getCSVParser();
+        listExporters(parser, "fuel");
+    public String countryInfo (CSVParser parser, String country) {
+         //for every country in the CSV
+         for (CSVRecord record : parser
+         // if the country is not found
+         String countries = record.get("Country")
+         //if the country is found
+         if (countries.contains(country)) {
+             //get exports according country
+             String exports = record.get("Exports")
+             //get value of exports//
+             String value = record.get("Value (dollars)");
+             String countryInformation = country + ": " + exports + ": " + value;
+             
+             return countryInformation;
+    }
+  //if country is not found 
+  String notFound = "NOT FOUND";
+  return notFound
+}
+}
